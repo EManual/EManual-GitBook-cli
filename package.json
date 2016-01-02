@@ -25,7 +25,11 @@
   },
   "homepage": "https://github.com/EManual/EManual-GitBook-cli#readme",
   "dependencies": {
+    "clean-css": "^3.4.8",
     "commander": "^2.9.0",
-    "gitbook-parsers": "^0.8.9"
+    "gitbook-parsers": "^0.8.9",
+    "glob": "^6.0.3",
+    "html-minifier": "^1.0.1",
+    "uglify-js": "^2.6.1"
   }
 }
