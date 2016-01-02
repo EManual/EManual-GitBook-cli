@@ -5,5 +5,5 @@ EManual :heart: GitBook
 
 SUMMARY.md -> summary.json
 ```
-$ gitbook-ext summary [-f --format]  [-i --input] SUMMARY.md [-o --out] summary.json 
+$ gitbook-ext summary [-f --format]  [-o --out] summary.json SUMMARY.md 
 ```

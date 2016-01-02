@@ -6,20 +6,25 @@ const gitbookParsers = require('gitbook-parsers')
 const fs = require('fs')
 
 program
+  .arguments('<file>')
+  .description('create summary.json from the given TOC file like SUMMARY.md')
   .option('-f, --format ', 'format the json, default: false', false)
-  .option('-i, --input [input]', 'the given TOC file, default:SUMMARY.md', 'SUMMARY.md')
   .option('-o, --output [output]', 'the output file, default:summary.json', 'summary.json')
-  .parse(process.argv)
+  .action(function (file, options) {
+    let parser = gitbookParsers.getForFile(file)
 
-let parser = gitbookParsers.getForFile(program.input)
+    parser
+      .summary(fs.readFileSync(file, {encoding: 'utf-8'}))
+      .then(function (summary) {
+        let result = ''
+        if (program.format) {
+          result = JSON.stringify(summary, null, 4), {encoding: 'utf-8'}
 
-parser
-  .summary(fs.readFileSync(program.input, {encoding: 'utf-8'}))
-  .then(function (summary) {
-    if (program.format) {
-      console.log()
-      fs.writeFileSync(program.output, JSON.stringify(summary, null, 4), {encoding: 'utf-8'})
-    } else {
-      fs.writeFileSync(program.output, JSON.stringify(summary, null, 0), {encoding: 'utf-8'})
-    }
+        } else {
+          result = JSON.stringify(summary, null, 0), {encoding: 'utf-8'}
+        }
+        fs.writeFileSync(program.output, result)
+        console.log(result)
+      })
   })
+  .parse(process.argv)
