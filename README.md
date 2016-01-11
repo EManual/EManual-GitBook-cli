@@ -14,3 +14,12 @@ $ gitbook-ext summary [-f --format]  [-o --out] summary.json SUMMARY.md
 ```shell
 $ gitbook-ext minify <folder> 
 ```
+
+## 开发
+
+```
+nvm use
+npm link .
+#remove
+npm unlink .
+```
