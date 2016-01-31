@@ -12,7 +12,7 @@ var CleanCSS = require('clean-css')
 program
   .arguments('<folder>')
   .description('minify the resource file(.html .js .css)')
-  .option('-v, --verbose ', 'log for that', false)
+  .option('-v, --verbose', 'log for that', false)
   .action(function (folder, options) {
     let html = glob.sync(path.join(folder, '**/*.html'))
     let css = glob.sync(path.join(folder, '**/*.css'))
