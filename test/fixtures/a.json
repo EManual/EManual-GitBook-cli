@@ -1,5 +1,8 @@
 {
-  "name": "userA",
-  "number": "1",
-  "attrA": "A"
+    "name": "userA",
+    "number": "1",
+    "attrA": "A",
+    "info": {
+        "password": "passwordA"
+    }
 }
