@@ -22,9 +22,9 @@ $ gitbook-ext minify <folder>
 详情：[issue #6](https://github.com/EManual/EManual-GitBook-cli/issues/6)
 ```shell
 $ cd test/fixtures
-$ gitbook-ext jsonmerge  [-f --format] a.json c.json > result.json
-$ gitbook-ext jsonmerge  [-f --format] a.json b.json > result.json
-$ gitbook-ext jsonmerge  [-f --format] a.json b.json c.json > result.json
+$ gitbook-ext jsonmerge json/a.json json/c.json > result.json
+$ gitbook-ext jsonmerge json/a.json json/b.json > result.json
+$ gitbook-ext jsonmerge json/*.json > result.json
 ```
 
 ## 开发
